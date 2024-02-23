@@ -16,7 +16,8 @@ class AutoController extends Controller
      */
     public function index()
     {
-        //
+        $autos = Auto::all();
+        return view('admin.autos.index', compact('autos')) ;
     }
 
     /**
@@ -48,7 +49,7 @@ class AutoController extends Controller
      */
     public function show(Auto $auto)
     {
-        //
+        return view('admin.autos.show', compact('auto')) ;
     }
 
     /**
