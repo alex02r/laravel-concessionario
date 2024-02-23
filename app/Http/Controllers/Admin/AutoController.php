@@ -59,7 +59,7 @@ class AutoController extends Controller
      */
     public function edit(Auto $auto)
     {
-        //
+        return view('admin.autos.edit-auto', compact('auto'));
     }
 
     /**
@@ -71,7 +71,10 @@ class AutoController extends Controller
      */
     public function update(UpdateAutoRequest $request, Auto $auto)
     {
-        //
+        $form_data = $request->all();
+
+        $auto = new Auto();
+        $auto->update($form_data);
     }
 
     /**
