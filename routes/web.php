@@ -18,15 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+/* Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard'); */
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        Route::delete('/', [ProfileController::class, 'index']);
+        Route::delete('/', [ProfileController::class, 'index'])->name('dashboard');
     });
 
 Route::middleware('auth')->group(function () {
