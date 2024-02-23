@@ -3,10 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                @include('partials.sidebar')
-            </div>
-            <div class="col-9">
+            <div class="col-12">
                 <h2 class="fs-4 text-secondary my-4">
                     {{ __('Dashboard') }}
                 </h2>
