@@ -66,6 +66,9 @@
                             <label for="price" class="form-label">Modifica il prezzo:</label>
                             <input type="text" class="form-control" name="price" id="price"  value="{{ old('price') ?? $auto['price'] }}">
                         </div>
+                        <div class="mb-3">
+                            <button type="submit">Modifica</button>
+                        </div>
                     </form>
                 </div>
             </div>
