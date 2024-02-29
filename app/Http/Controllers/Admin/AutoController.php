@@ -6,6 +6,7 @@ use App\Models\Auto;
 use App\Http\Requests\StoreAutoRequest;
 use App\Http\Requests\UpdateAutoRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 
 class AutoController extends Controller
 {
@@ -17,7 +18,7 @@ class AutoController extends Controller
     public function index()
     {
         $autos = Auto::all();
-        return view('admin.autos.index', compact('autos')) ;
+        return view('admin.autos.index', compact('autos'));
     }
 
     /**
@@ -27,6 +28,8 @@ class AutoController extends Controller
      */
     public function create()
     {
+        $brands = Brand::all();
+        return view('admin.autos.create', compact('brands'));
         return view('admin.autos.create');
     }
 
@@ -64,7 +67,7 @@ class AutoController extends Controller
      */
     public function show(Auto $auto)
     {
-        return view('admin.autos.show', compact('auto')) ;
+        return view('admin.autos.show', compact('auto'));
     }
 
     /**
