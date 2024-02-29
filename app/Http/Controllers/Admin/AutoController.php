@@ -6,6 +6,7 @@ use App\Models\Auto;
 use App\Http\Requests\StoreAutoRequest;
 use App\Http\Requests\UpdateAutoRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 
 class AutoController extends Controller
 {
@@ -75,7 +76,8 @@ class AutoController extends Controller
      */
     public function edit(Auto $auto)
     {
-        return view('admin.autos.edit-auto', compact('auto'));
+        $brands = Brand::all();
+        return view('admin.autos.edit-auto', compact('auto', 'brands'));
     }
 
     /**
