@@ -60,7 +60,10 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        // Recupero i brand
+        $brands = Brand::all();
+
+        return view('admin.brands.edit', compact('brands'));
     }
 
     /**
@@ -72,7 +75,19 @@ class BrandController extends Controller
      */
     public function update(UpdateBrandRequest $request, Brand $brand)
     {
-        //
+        $form_data = $request->all();
+
+        // CREO LA NUOVA ISTANZA PER BRAND PER SALVARLO NEL DATABASE
+        $brand = new Brand();
+
+        // RECUPERO I DATI TRAMITE IL FILL
+        $brand->fill($form_data);
+
+        // SALVO I DATI
+        $brand->save();
+
+        // FACCIO IL REDIRECT ALLA PAGINA SHOW 
+        return redirect()->route('admin.brands.show', ['brand' => $brand]);
     }
 
     /**
