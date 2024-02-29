@@ -15,8 +15,8 @@
                 <div class="card">
                     <img src="{{ $auto->img }}" class="card-img-top img-fluid" alt="{{ $auto->model }}">
                     <div class="card-body">
-                        <h4 class="card-title">{{ $auto->brand != null ? $auto->brand->name : 'Non assegnato' }}</h4>
-                        <h6>{{ $auto->model }}, {{ $auto->type }}</h6>
+                        <h4 class="card-title">{{ $auto->model }}</h4>
+                        <h6>{{ $auto->brand != null ? $auto->brand->name : 'Non assegnato' }}, {{ $auto->type }}</h6>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Anno: {{ $auto->year }}</li>
