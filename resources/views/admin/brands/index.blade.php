@@ -12,7 +12,7 @@
             @foreach ($brands as $brand)
             <div class="col-3 my-3">
                 <div class="card">
-                    <img src="{{$brand->logo}}" class="card-img-top" alt="{{$brand->name}}">
+                    <img src="{{$brand->logo}}" class="card-img-top" alt="Logo di {{$brand->name}}">
                     <div class="card-body">
                         <h4 class="card-title">{{$brand->name}}</h4>
                         <a href="{{route('admin.brands.show', ['brand' => $brand->id])}}" class="btn btn-sm btn-primary">Visualizza</a>
