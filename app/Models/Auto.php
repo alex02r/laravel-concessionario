@@ -18,7 +18,8 @@ class Auto extends Model
         'horsepower', 
         'description', 
         'img', 
-        'price'
+        'price',
+        'brand_id'
     ];
 
 
