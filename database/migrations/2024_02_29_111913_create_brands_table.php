@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 80);
+            $table->string('logo', 255);
+            $table->string('phone', 30);
+            $table->string('type_car', 40);
             $table->timestamps();
         });
     }

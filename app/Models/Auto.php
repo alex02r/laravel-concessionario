@@ -20,4 +20,10 @@ class Auto extends Model
         'img', 
         'price'
     ];
+
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }
