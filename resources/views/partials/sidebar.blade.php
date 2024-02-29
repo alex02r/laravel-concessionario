@@ -32,11 +32,11 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('admin.brands.index') }}" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#grid"></use>
                 </svg>
-                Products
+                Brands
             </a>
         </li>
         <li>
