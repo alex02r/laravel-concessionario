@@ -89,8 +89,8 @@ class AutoController extends Controller
     {
         $form_data = $request->all();
 
-        $auto = new Auto();
         $auto->update($form_data);
+        return redirect()->route('admin.autos.index');
     }
 
     /**
