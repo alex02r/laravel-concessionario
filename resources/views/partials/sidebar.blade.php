@@ -8,7 +8,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="{{ route('home') }}" class="nav-link link-dark" aria-current="page">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home"></use>
                 </svg>
@@ -16,7 +16,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link link-dark {{ Route::currentRouteName() == 'admin.dashboard' ? 'active text-white' : ''}}">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#speedometer2"></use>
                 </svg>
@@ -24,11 +24,11 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('admin.autos.index') }}" class="nav-link link-dark {{ Route::currentRouteName() == 'admin.autos.index' ? 'active text-white' : ''}}">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#table"></use>
                 </svg>
-                Orders
+                Autos
             </a>
         </li>
         <li>
