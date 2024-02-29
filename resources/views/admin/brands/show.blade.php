@@ -7,7 +7,7 @@
             <div>
                 <a href="{{ route('admin.brands.edit', ['brand'=>$brand->id]) }}" class="btn btn-primary">Edit</a>
                  {{-- MODALE DELETE --}}
-                <button class="btn btn-sm square btn-danger" data-bs-toggle="modal" data-bs-target="#modal_auto_delete-{{ $brand->id }}">Delete</button>
+                {{-- <button class="btn btn-sm square btn-danger" data-bs-toggle="modal" data-bs-target="#modal_auto_delete-{{ $brand->id }}">Delete</button> --}}
             </div>
         </div>
         <div class="col-8">
@@ -20,5 +20,5 @@
             </div>
         </div>
         {{-- POP-UP MODALE --}}
-        @include('admin.autos.modal_delete')
+        {{-- @include('admin.autos.modal_delete') --}}
 @endsection
