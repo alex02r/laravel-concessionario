@@ -26,7 +26,7 @@ class AutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('#');
     }
 
     /**
@@ -37,7 +37,22 @@ class AutoController extends Controller
      */
     public function store(StoreAutoRequest $request)
     {
-        //
+        $form_data = $request->all();
+
+        $auto = new Auto();
+        $auto->brand = $form_data['brand'];
+        $auto->model = $form_data['model'];
+        $auto->year = $form_data['year'];
+        $auto->type = $form_data['type'];
+        $auto->fuel_type = $form_data['fuel_type'];
+        $auto->displacement = $form_data['displacement'];
+        $auto->horsepower = $form_data['horsepower'];
+        $auto->description = $form_data['description'];
+        $auto->img = $form_data['img'];
+        $auto->price = $form_data['price'];
+        $auto->save();
+
+        return redirect()->route('#');
     }
 
     /**
