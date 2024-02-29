@@ -22,6 +22,7 @@ class Auto extends Model
         'brand_id'
     ];
 
+    
 
     public function brand()
     {
