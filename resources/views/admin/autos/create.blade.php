@@ -1,10 +1,10 @@
-@extends('#')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('#') }}" method="post">
+                <form action="{{ route('admin.autos.store') }}" method="post">
                     <div class="form-group my-3">
                         @csrf
                         <label for="brand" class="control-label">brand</label>
