@@ -5,7 +5,7 @@
         <div class="col-12 d-flex justify-content-between align-items-center my-2">
             <h1>Autos</h1>
             <div>
-                <a href="" class="btn btn-primary">Edit</a>
+                <a href="{{ route('admin.autos.edit', ['auto'=>$auto->id]) }}" class="btn btn-primary">Edit</a>
             </div>
         </div>
         <div class="col-8">

@@ -11,15 +11,16 @@
         <div class="row">
             @foreach ($autos as $auto)
             <div class="col-3 my-3">
-                <a href="{{route('admin.autos.show', ['auto' => $auto->id])}}">
-                    <div class="card">
-                        <img src="{{$auto->img}}" class="card-img-top" alt="{{$auto->model}}">
-                        <div class="card-body">
-                            <h4 class="card-title">{{$auto->brand}}</h4>
-                            <h6>{{$auto->model}}</h6>
-                        </div>
+                <div class="card">
+                    <img src="{{$auto->img}}" class="card-img-top" alt="{{$auto->model}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{$auto->brand}}</h4>
+                        <h6>{{$auto->model}}</h6>
+                        <a href="{{route('admin.autos.show', ['auto' => $auto->id])}}" class="btn btn-sm btn-primary">Visualizza</a>
+                        <a href="{{ route('admin.autos.edit', ['auto'=>$auto->id]) }}" class="btn btn-sm btn-warning">Edit</a>
+
                     </div>
-                </a>
+                </div>
             </div>
             @endforeach
         </div>
