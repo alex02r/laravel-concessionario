@@ -12,7 +12,7 @@
         </div>
         <div class="col-8">
             <div class="card">
-                <img src="{{$brand->img}}" class="card-img-top img-fluid" alt="{{$brand->name}}" width="200">
+                <img src="{{$brand->logo}}" class="card-img-top" alt="{{$brand->name}}">
                 <div class="card-body">
                     <p>Numero di telefono: {{$brand->phone}}</p>
                     <p>Tipo di auto: {{$brand->type_car}}</p>
