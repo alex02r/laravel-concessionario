@@ -16,10 +16,21 @@
                         @csrf
                         @method('PUT')
                         {{-- Marca --}}
-                        <div class="mb-3">
-                            <label for="brand" class="form-label">Modifica la Marca:</label>
-                            <input type="text" class="form-control" name="brand" id="brand"  value="{{ old('brand') ?? $auto['brand'] }}">
-                        </div>
+                        {{-- 
+                            <div class="mb-3">
+                                <label for="brand" class="form-label">Modifica la Marca:</label>
+                                <input type="text" class="form-control" name="brand" id="brand"  value="{{ old('brand') ?? $auto['brand'] }}">
+                            </div> 
+                        --}}
+                            <div class="mb-3">
+                                <label for="brand_id" class="form-label">Modifica il brand: </label>
+                                <select name="brand_id" id="brand_id" class="form-select">
+                                    <option >Seleziona un brand</option>
+                                    @foreach ($brands as $brand)
+                                        <option value="{{ $brand->id }}" @selected( $brand->id == old('brand_id', $auto->brand_id ? $auto->brand_id : ''))>{{ $brand->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         {{-- Modello --}}
                         <div class="mb-3">
                             <label for="model" class="form-label">Modifica il modello:</label>
@@ -67,7 +78,7 @@
                             <input type="text" class="form-control" name="price" id="price"  value="{{ old('price') ?? $auto['price'] }}">
                         </div>
                         <div class="mb-3">
-                            <button type="submit">Modifica</button>
+                            <button type="submit" class="btn btn-success">Modifica</button>
                         </div>
                     </form>
                 </div>
