@@ -13,7 +13,7 @@ class UpdateAutoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,6 +22,12 @@ class UpdateAutoRequest extends FormRequest
      * @return array<string, mixed>
      */
     public function rules()
+    {
+        return [
+            //
+        ];
+    }
+    public function messages()
     {
         return [
             //
