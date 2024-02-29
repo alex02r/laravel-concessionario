@@ -18,10 +18,13 @@
                         <h6>{{$auto->model}}</h6>
                         <a href="{{route('admin.autos.show', ['auto' => $auto->id])}}" class="btn btn-sm btn-primary">Visualizza</a>
                         <a href="{{ route('admin.autos.edit', ['auto'=>$auto->id]) }}" class="btn btn-sm btn-warning">Edit</a>
-
+                        {{-- MODALE DELETE --}}
+                        <button class="btn btn-sm square btn-danger" data-bs-toggle="modal" data-bs-target="#modal_auto_delete-{{ $auto->id }}">Delete</button>
                     </div>
                 </div>
             </div>
+            {{-- POP-UP MODALE --}}
+            @include('admin.autos.modal_delete')
             @endforeach
         </div>
 @endsection
