@@ -25,6 +25,14 @@
                         <li class="list-group-item">Alimentazione: {{ $auto->fuel_type }}</li>
                         <li class="list-group-item">Prezzo: {{ $auto->price }}</li>
                     </ul>
+                    <div class="card-body">
+                        {{-- EDIT BUTTON --}}
+                        <a href="{{ route('admin.autos.edit', ['auto' => $auto['id']]) }}">
+                            <button type="button" class="btn btn-warning mx-2"><i class="fas fa-edit"></i> Edit auto</button>
+                        </a>
+                        {{-- MODALE DELETE --}}
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal_auto_delete-{{ $auto->id }}"><i class="fas fa-trash"></i> Delete auto</button> 
+                    </div>
                 </div>
             </div>
             {{-- POP-UP MODALE --}}
