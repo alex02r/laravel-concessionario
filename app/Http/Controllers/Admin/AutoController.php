@@ -30,7 +30,6 @@ class AutoController extends Controller
     {
         $brands = Brand::all();
         return view('admin.autos.create', compact('brands'));
-        return view('admin.autos.create');
     }
 
     /**
