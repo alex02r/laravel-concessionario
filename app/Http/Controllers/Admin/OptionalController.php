@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Optional;
 use App\Http\Requests\StoreOptionalRequest;
 use App\Http\Requests\UpdateOptionalRequest;
+use App\Http\Controllers\Controller;
 
 class OptionalController extends Controller
 {
