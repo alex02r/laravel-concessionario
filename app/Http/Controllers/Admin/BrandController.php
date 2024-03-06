@@ -61,10 +61,8 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        // Recupero i brand
-        $brands = Brand::all();
 
-        return view('admin.brands.edit', compact('brands'));
+        return view('admin.brands.edit-brand', compact('brand'));
     }
 
     /**
