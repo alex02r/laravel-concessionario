@@ -72,9 +72,11 @@ class OptionalController extends Controller
      * @param  \App\Models\Optional  $optional
      * @return \Illuminate\Http\Response
      */
-    public function edit(Optional $optional)
+    public function edit($id)
     {
-        //
+        $optional = Optional::findOrFail($id);
+
+        return view('admin.optionals.edit', compact('optional'));
     }
 
     /**

@@ -35,14 +35,15 @@
                                         <a href="{{ route('admin.optionals.edit', ['optional' => $optional->id]) }}"
                                             class="btn btn-sm square btn-warning mx-2"><i class="fas fa-edit"></i></a>
 
-                                        <button class="btn btn-sm square btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modal_optional_delete-{{ $optional->id }}"><i
-                                                class="fas fa-trash"></i></button>
+                                        <form action="{{ route('admin.optionals.destroy', $optional->id) }}" method="POST"
+                                            style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
-                            {{-- POP-UP MODALE --}}
-                            @include('admin.optionals.modal_delete')
                         @endforeach
                     </tbody>
                 </table>
