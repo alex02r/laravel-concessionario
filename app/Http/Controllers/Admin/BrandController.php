@@ -28,7 +28,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.brands.create');
     }
 
     /**
@@ -39,7 +39,17 @@ class BrandController extends Controller
      */
     public function store(StoreBrandRequest $request)
     {
-        //
+        $form_data = $request->all();
+        
+        $brand = new Brand();
+        $brand->name = $form_data['name'];
+        $brand->type_car = $form_data['type_car'];
+        $brand->phone = $form_data['phone'];
+        $brand->logo = $form_data['logo'];
+        $brand->save();
+
+        return redirect()->route('admin.brands.index');
+        
     }
 
     /**
