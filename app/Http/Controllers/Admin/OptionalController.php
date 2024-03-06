@@ -6,6 +6,7 @@ use App\Models\Optional;
 use App\Http\Requests\StoreOptionalRequest;
 use App\Http\Requests\UpdateOptionalRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class OptionalController extends Controller
 {
@@ -27,7 +28,7 @@ class OptionalController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.optionals.create');
     }
 
     /**
@@ -38,6 +39,19 @@ class OptionalController extends Controller
      */
     public function store(StoreOptionalRequest $request)
     {
+        $form_data = $request->all();
+
+        // CREO LA NUOVA ISTANZA PER OPTIONAL PER SALVARLO NEL DATABASE
+        $optonal = new Optional();
+
+        // LO SLUG LO RECUPERO IN UN SECONDO MOMENTO, IN QUANTO NON LO PASSO NEL FORM
+        $form_data['slug'] = Str::slug($form_data['name'], '-');
+        // RECUPERO I DATI TRAMITE IL FILL
+        $optonal->fill($form_data);
+
+        // SALVO I DATI
+        $optonal->save();
+        
         return view('admin.optionals.show', compact('optional'));
     }
 
