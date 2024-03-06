@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('autos', function (Blueprint $table) {
-            $table->dropColumn('brand');
+        Schema::create('optionals', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->text('description');
+            $table->string('price');
+            $table->string('slug');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('autos', function (Blueprint $table) {
-            $table->string('brand');
-        });
+        Schema::dropIfExists('optionals');
     }
 };
