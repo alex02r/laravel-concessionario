@@ -7,6 +7,8 @@ use App\Http\Requests\StoreAutoRequest;
 use App\Http\Requests\UpdateAutoRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Optional;
+use Illuminate\Support\Facades\Storage;
 
 class AutoController extends Controller
 {
@@ -29,7 +31,8 @@ class AutoController extends Controller
     public function create()
     {
         $brands = Brand::all();
-        return view('admin.autos.create', compact('brands'));
+        $optionals = Optional::all();
+        return view('admin.autos.create', compact('brands', 'optionals'));
     }
 
     /**
@@ -43,16 +46,18 @@ class AutoController extends Controller
         $form_data = $request->all();
 
         $auto = new Auto();
-        $auto->brand = $form_data['brand'];
-        $auto->model = $form_data['model'];
-        $auto->year = $form_data['year'];
-        $auto->type = $form_data['type'];
-        $auto->fuel_type = $form_data['fuel_type'];
-        $auto->displacement = $form_data['displacement'];
-        $auto->horsepower = $form_data['horsepower'];
-        $auto->description = $form_data['description'];
-        $auto->img = $form_data['img'];
-        $auto->price = $form_data['price'];
+
+        $auto = new auto();
+        if ($request->hasFile('img')) {
+            $path = Storage::disk('public')->put('img', $form_data['img']);
+            $form_data['img'] = $path;
+        }
+
+        $auto->fill($form_data);
+
+        if ($request->has('optionals')) {
+            $auto->technologies()->attach($form_data['admin.autos.index']);
+        }
         $auto->save();
 
         return redirect()->route('#');
@@ -78,7 +83,9 @@ class AutoController extends Controller
     public function edit(Auto $auto)
     {
         $brands = Brand::all();
-        return view('admin.autos.edit-auto', compact('auto', 'brands'));
+        $optionals = Optional::all();
+
+        return view('admin.autos.edit-auto', compact('auto', 'brands', 'optionals'));
     }
 
     /**
@@ -93,6 +100,12 @@ class AutoController extends Controller
         $form_data = $request->all();
 
         $auto->update($form_data);
+
+        if ($request->has('optionals')) {
+            $auto->optionals()->sync($form_data['optionals']);
+        } else {
+            $auto->optionals()->sync([]);
+        }
         return redirect()->route('admin.autos.index');
     }
 
