@@ -65,23 +65,33 @@ class OptionalController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOptionalRequest  $request
-     * @param  \App\Models\Optional  $optional
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOptionalRequest $request, Optional $optional)
+    public function update(UpdateOptionalRequest $request, $id)
     {
-        //
+        $optional = Optional::findOrFail($id);
+        $optional->name = $request->name;
+        $optional->description = $request->description;
+        $optional->price = $request->price;
+        $optional->slug = $request->slug;
+        $optional->save();
+
+        return response()->json($optional);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Optional  $optional
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Optional $optional)
+    public function destroy($id)
     {
-        //
+        $optional = Optional::findOrFail($id);
+        $optional->delete();
+
+        return response()->json('Optional deleted successfully');
     }
 }
