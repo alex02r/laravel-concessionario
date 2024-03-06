@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('auto_optional', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('auto_id');
+            $table->foreign('auto_id')->references('id')->on('autos')->cascadeOnDelete();
+
+            $table->unsignedBigInteger('optional_is');
+            $table->foreign('optional_is')->references('id')->on('optionals')->cascadeOnDelete();
+
         });
     }
 
