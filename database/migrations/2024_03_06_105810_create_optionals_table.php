@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('optionals', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->text('description');
+            $table->string('price');
+            $table->string('slug');
             $table->timestamps();
         });
     }
