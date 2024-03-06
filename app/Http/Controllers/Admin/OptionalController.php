@@ -16,7 +16,8 @@ class OptionalController extends Controller
      */
     public function index()
     {
-        //
+        $optionals = Optional::all();
+        return view('admin.optionals.index', compact('optionals'));
     }
 
     /**
@@ -37,7 +38,7 @@ class OptionalController extends Controller
      */
     public function store(StoreOptionalRequest $request)
     {
-        //
+        return view('admin.optionals.show', compact('optional'));
     }
 
     /**
