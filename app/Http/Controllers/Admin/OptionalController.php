@@ -6,6 +6,7 @@ use App\Models\Optional;
 use App\Http\Requests\StoreOptionalRequest;
 use App\Http\Requests\UpdateOptionalRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class OptionalController extends Controller
 {
@@ -16,7 +17,8 @@ class OptionalController extends Controller
      */
     public function index()
     {
-        //
+        $optionals = Optional::all();
+        return view('admin.optionals.index', compact('optionals'));
     }
 
     /**
@@ -26,7 +28,7 @@ class OptionalController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.optionals.create');
     }
 
     /**
@@ -37,7 +39,20 @@ class OptionalController extends Controller
      */
     public function store(StoreOptionalRequest $request)
     {
-        //
+        $form_data = $request->all();
+
+        // CREO LA NUOVA ISTANZA PER OPTIONAL PER SALVARLO NEL DATABASE
+        $optonal = new Optional();
+
+        // LO SLUG LO RECUPERO IN UN SECONDO MOMENTO, IN QUANTO NON LO PASSO NEL FORM
+        $form_data['slug'] = Str::slug($form_data['name'], '-');
+        // RECUPERO I DATI TRAMITE IL FILL
+        $optonal->fill($form_data);
+
+        // SALVO I DATI
+        $optonal->save();
+        
+        return view('admin.optionals.show', compact('optional'));
     }
 
     /**
@@ -65,23 +80,33 @@ class OptionalController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOptionalRequest  $request
-     * @param  \App\Models\Optional  $optional
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOptionalRequest $request, Optional $optional)
+    public function update(UpdateOptionalRequest $request, $id)
     {
-        //
+        $optional = Optional::findOrFail($id);
+        $optional->name = $request->name;
+        $optional->description = $request->description;
+        $optional->price = $request->price;
+        $optional->slug = $request->slug;
+        $optional->save();
+
+        return response()->json($optional);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Optional  $optional
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Optional $optional)
+    public function destroy($id)
     {
-        //
+        $optional = Optional::findOrFail($id);
+        $optional->delete();
+
+        return response()->json('Optional deleted successfully');
     }
 }
