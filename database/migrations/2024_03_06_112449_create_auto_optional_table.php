@@ -17,9 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('auto_id');
             $table->foreign('auto_id')->references('id')->on('autos')->cascadeOnDelete();
 
-            $table->unsignedBigInteger('optional_is');
-            $table->foreign('optional_is')->references('id')->on('optionals')->cascadeOnDelete();
-
+            $table->unsignedBigInteger('optional_id');
+            $table->foreign('optional_id')->references('id')->on('optionals')->cascadeOnDelete();
         });
     }
 

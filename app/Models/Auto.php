@@ -9,26 +9,27 @@ class Auto extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'brand', 
-        'model', 
-        'year', 
-        'type', 
-        'fuel_type', 
-        'displacement', 
-        'horsepower', 
-        'description', 
-        'img', 
+
+        'model',
+        'year',
+        'type',
+        'fuel_type',
+        'displacement',
+        'horsepower',
+        'description',
+        'img',
         'price',
         'brand_id'
     ];
 
-    
+
 
     public function brand()
     {
         return $this->belongsTo(Brand::class);
     }
-    public function optionals(){
+    public function optionals()
+    {
         return $this->belongsToMany(Optional::class);
     }
 }
