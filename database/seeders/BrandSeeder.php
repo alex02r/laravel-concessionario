@@ -10,6 +10,7 @@ use App\Models\Brand;
 use Faker\Generator as Faker;
 use Faker\Provider\en_US\PhoneNumber;
 use Faker\Provider\en_US\Company;
+use Illuminate\Support\Str;
 
 class BrandSeeder extends Seeder
 {
@@ -26,6 +27,7 @@ class BrandSeeder extends Seeder
             $brand->logo = $faker->imageUrl(360, 360, 'cars', true);
             $brand->phone = $faker->phoneNumber();
             $brand->type_car = $faker->words(3, true);
+            $brand->slug = Str::slug($brand->name, '-');
 
             $brand->save();
         }
