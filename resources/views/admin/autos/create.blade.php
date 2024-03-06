@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group my-3">
                         <label for="year" class="control-label">year</label>
-                        <input type="number" min="2000" max="{{ date('Y') }}" step="1"
+                        <input name="year" type="number" min="2000" max="{{ date('Y') }}" step="1"
                             class="form-control" />
                         @error('year')
                             <div class="text-danger">{{ $message }}</div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="type">Type</label>
-                        <select class="form-select" id="type">
+                        <select name="type" class="form-select" id="type">
                             <option selected>Choose...</option>
                             <option value="1">SUV</option>
                             <option value="2">Sedan</option>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="fuel_type">Fuel</label>
-                        <select class="form-select" id="fuel_type">
+                        <select name="fuel_type" class="form-select" id="fuel_type">
                             <option selected>Choose...</option>
                             <option value="1">Petrol</option>
                             <option value="2">Diesel</option>
@@ -72,14 +72,16 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="displacement" class="control-label">displacement</label>
-                        <input type="number" min="1000" max="4000" step="1" class="form-control" />
+                        <input name="displacement" type="number" min="1000" max="4000" step="1"
+                            class="form-control" />
                         @error('displacement')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label for="horsepower" class="control-label">horsepower</label>
-                        <input type="number" min="50" max="400" step="1" class="form-control" />
+                        <input name="horsepower" type="number" min="50" max="400" step="1"
+                            class="form-control" />
                         @error('horsepower')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -93,7 +95,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="img">Img</label>
-                        <input class="form-control" type="url" name="url" id="url"
+                        <input name="img" class="form-control" type="url" name="url" id="url"
                             placeholder="https://example.com" pattern="https://.*" size="30" />
                     </div>
                     <div class="form-group">

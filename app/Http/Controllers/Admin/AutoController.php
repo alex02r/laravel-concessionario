@@ -56,7 +56,7 @@ class AutoController extends Controller
         $auto->price = $form_data['price'];
         $auto->save();
 
-        return redirect()->route('#');
+        return redirect()->route('admin.autos.index');
     }
 
     /**
