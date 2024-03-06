@@ -9,7 +9,6 @@ class Auto extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'brand', 
         'model', 
         'year', 
         'type', 
@@ -19,7 +18,7 @@ class Auto extends Model
         'description', 
         'img', 
         'price',
-        'brand_id'
+        'brand_id',
     ];
 
     

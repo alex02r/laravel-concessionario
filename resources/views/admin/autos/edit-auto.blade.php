@@ -12,7 +12,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('admin.autos.update', ['auto' => $auto]) }}" method="post">
+                <form action="{{ route('admin.autos.update', ['auto' => $auto]) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     {{-- Marca --}}
@@ -45,10 +45,19 @@
                             id="year" value="{{ old('year') ?? $auto['year'] }}">
                     </div>
                     {{-- Tipo --}}
-                    <div class="mb-3">
-                        <label for="type" class="form-label">Modifica Il tipo:</label>
-                        <input type="text" class="form-control" name="type" id="type"
-                            value="{{ old('type') ?? $auto['type'] }}">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="type">Type</label>
+                        <select name="type" class="form-select" id="type">
+                            <option selected>Choose...</option>
+                            <option value="1">SUV</option>
+                            <option value="2">Sedan</option>
+                            <option value="3">Hatchback</option>
+                            <option value="4">Coupé</option>
+                            <option value="5">Convertible</option>
+                        </select>
+                        @error('type')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     {{-- Optional --}}
                     <div class="form-group my-3">

@@ -45,8 +45,6 @@ class AutoController extends Controller
     {
         $form_data = $request->all();
 
-        $auto = new Auto();
-
         $auto = new auto();
         if ($request->hasFile('img')) {
             $path = Storage::disk('public')->put('img', $form_data['img']);
@@ -60,7 +58,7 @@ class AutoController extends Controller
         }
         $auto->save();
 
-        return redirect()->route('#');
+        return redirect()->route('admin.autos.index');
     }
 
     /**
@@ -98,15 +96,16 @@ class AutoController extends Controller
     public function update(UpdateAutoRequest $request, Auto $auto)
     {
         $form_data = $request->all();
-
-        $auto->update($form_data);
-
+        
         if ($request->has('optionals')) {
             $auto->optionals()->sync($form_data['optionals']);
         } else {
             $auto->optionals()->sync([]);
         }
-        return redirect()->route('admin.autos.index');
+
+        $auto->update($form_data);
+        
+        return redirect()->route('admin.autos.show', ['auto'=>$auto]);
     }
 
     /**
