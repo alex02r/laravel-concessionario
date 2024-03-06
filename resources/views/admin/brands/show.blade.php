@@ -17,8 +17,16 @@
                     <p>Numero di telefono: {{$brand->phone}}</p>
                     <p>Tipo di auto: {{$brand->type_car}}</p>
                 </div>
+                <div class="card-body">
+                        {{-- EDIT BUTTON --}}
+                        <a href="{{ route('admin.brands.edit', ['brand' => $brand['id']]) }}">
+                            <button type="button" class="btn btn-warning mx-2"><i class="fas fa-edit"></i> Edit brand</button>
+                        </a>
+                        {{-- MODALE DELETE --}}
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal_brand_delete-{{ $brand->id }}"><i class="fas fa-trash"></i> Delete brand</button> 
+                    </div>
             </div>
         </div>
         {{-- POP-UP MODALE --}}
-        {{-- @include('admin.autos.modal_delete') --}}
+        @include('admin.brands.modal_delete')
 @endsection
