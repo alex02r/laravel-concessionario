@@ -87,15 +87,11 @@ class OptionalController extends Controller
     public function update(UpdateOptionalRequest $request, $id)
     {
         $optional = Optional::findOrFail($id);
-        $optional->name = $request->name;
-        $optional->description = $request->description;
-        $optional->price = $request->price;
-        $optional->slug = $request->slug;
-        $optional->save();
-
-        return response()->json($optional);
+        $optional->update($request->all());
+    
+        return redirect()->route('admin.optionals.show', $optional->id)->with('success', 'Optional updated successfully');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -107,6 +103,7 @@ class OptionalController extends Controller
         $optional = Optional::findOrFail($id);
         $optional->delete();
 
-        return response()->json('Optional deleted successfully');
+        return redirect()->route('admin.optionals.index')->with('success', 'Optional deleted successfully');
     }
+    
 }
