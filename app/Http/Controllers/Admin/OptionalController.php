@@ -63,7 +63,7 @@ class OptionalController extends Controller
      */
     public function show(Optional $optional)
     {
-        //
+        return view('admin.optionals.show', compact('optional'));
     }
 
     /**

@@ -32,7 +32,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('admin.brands.index') }}" class="nav-link link-dark">
+            <a href="{{ route('admin.brands.index') }}" class="nav-link link-dark {{ Route::currentRouteName() == 'admin.brands.index' ? 'active text-white' : ''}}">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#grid"></use>
                 </svg>
@@ -40,11 +40,11 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('admin.optionals.index') }}" class="nav-link link-dark {{ Route::currentRouteName() == 'admin.optionals.index' ? 'active text-white' : ''}}">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#people-circle"></use>
                 </svg>
-                Customers
+                Optionals
             </a>
         </li>
     </ul>

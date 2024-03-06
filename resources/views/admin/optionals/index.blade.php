@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-between align-items-center">
             <h1 class="fw-bold">Optionals</h1>
-            {{-- <a href="{{ route('admin.optionals.create') }}" > <button class="btn btn-success ms-5">Aggiungi un nuovo tipo di progetto</button></a> --}}
+            <a href="{{ route('admin.optionals.create') }}" > <button class="btn btn-sm btn-success ms-5">Add Optional</button></a>
             
         </div>
         <div class="col-12 mt-5">
