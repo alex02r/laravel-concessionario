@@ -52,11 +52,11 @@ class AutoController extends Controller
 
 
         $auto->fill($form_data);
+        $auto->save();
 
         if ($request->has('optionals')) {
             $auto->optionals()->attach($form_data['optionals']);
         }
-        $auto->save();
 
         return redirect()->route('admin.autos.index');
     }
