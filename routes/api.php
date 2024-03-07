@@ -14,9 +14,9 @@ use App\Http\Controllers\Api\AutoController as AutoController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/Autos', [AutoController::class, 'index']);
-Route::get('/Autos', [AutoController::class, 'get_brand_autos']);
-Route::get('/Autos/{id}', [AutoController::class, 'show']);
+Route::get('/autos', [AutoController::class, 'index']);
+/* Route::get('/autos', [AutoController::class, 'get_brand_autos']); */
+Route::get('/autos/{id}', [AutoController::class, 'show']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

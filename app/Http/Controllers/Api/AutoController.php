@@ -9,7 +9,7 @@ use App\Models\Auto;
 class AutoController extends Controller
 {
     public function index(){
-        $autos = Auto::with(['brand', 'optional'])->paginate(6);
+        $autos = Auto::with(['brand', 'optionals'])->paginate(6);
         return response()->json([
             'success' => true,
             'results' => $autos 
