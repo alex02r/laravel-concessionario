@@ -31,6 +31,7 @@ class StoreAutoRequest extends FormRequest
             'fuel_type' => 'required',
             'displacement' => 'required',
             'horsepower' => 'required',
+            'price' => 'required',
             'description' => 'required|max:500',
 
         ];
@@ -45,7 +46,8 @@ class StoreAutoRequest extends FormRequest
             'type.required' => 'Il campo type è obbligatorio',
             'fuel_type' => 'Il campo fuel è obbligatorio',
             'displacement.required' => 'Il campo displacement è obbligatorio',
-            'horsepower.required' => 'Il campo è obbligatorio',
+            'horsepower.required' => 'Il campo horsepower è obbligatorio',
+            'price.required' => 'Il campo horsepower è obbligatorio',
             'description.required' => 'Il campo description è obbligatorio',
             'description.max' => 'Il campo description deve contenere al massimo 500 caratteri'
 

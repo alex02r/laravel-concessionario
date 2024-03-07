@@ -110,6 +110,13 @@
                         <input name="img" class="form-control" type="url" name="url" id="url"
                             placeholder="https://example.com" pattern="https://.*" size="30" />
                     </div>
+                    <div class="form-group mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="text" class="form-control" name="price" id="price" />
+                        @error('price')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-sm btn-success">Save</button>
                     </div>
