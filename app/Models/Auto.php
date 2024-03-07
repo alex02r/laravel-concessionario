@@ -21,13 +21,14 @@ class Auto extends Model
         'brand_id',
     ];
 
-    
+
 
     public function brand()
     {
         return $this->belongsTo(Brand::class);
     }
-    public function optionals(){
+    public function optionals()
+    {
         return $this->belongsToMany(Optional::class);
     }
 }

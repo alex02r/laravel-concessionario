@@ -18,9 +18,9 @@ class AutoSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 10; $i++){
+        for ($i = 0; $i < 10; $i++) {
             Auto::create([
-                'brand' => $faker->company,
+
                 'model' => $faker->word,
                 'year' => $faker->year,
                 'type' => $faker->randomElement(['SUV', 'Sedan', 'Hatchback', 'Coupé', 'Convertible']),
@@ -32,6 +32,5 @@ class AutoSeeder extends Seeder
                 'price' => $faker->randomNumber(5) . ' €',
             ]);
         }
-
     }
 }

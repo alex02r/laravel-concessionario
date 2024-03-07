@@ -44,17 +44,17 @@ class AutoController extends Controller
     public function store(StoreAutoRequest $request)
     {
         $form_data = $request->all();
-
         $auto = new auto();
         if ($request->hasFile('img')) {
             $path = Storage::disk('public')->put('img', $form_data['img']);
             $form_data['img'] = $path;
         }
 
+
         $auto->fill($form_data);
 
         if ($request->has('optionals')) {
-            $auto->technologies()->attach($form_data['admin.autos.index']);
+            $auto->optionals()->attach($form_data['optionals']);
         }
         $auto->save();
 
