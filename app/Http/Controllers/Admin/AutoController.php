@@ -96,7 +96,6 @@ class AutoController extends Controller
     public function update(UpdateAutoRequest $request, Auto $auto)
     {
         $form_data = $request->all();
-        
         if ($request->has('optionals')) {
             $auto->optionals()->sync($form_data['optionals']);
         } else {
