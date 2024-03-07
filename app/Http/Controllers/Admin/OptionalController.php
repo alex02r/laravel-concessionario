@@ -52,7 +52,7 @@ class OptionalController extends Controller
         // SALVO I DATI
         $optonal->save();
         
-        return view('admin.optionals.show', compact('optional'));
+        return redirect()->route('admin.optionals.index');
     }
 
     /**
