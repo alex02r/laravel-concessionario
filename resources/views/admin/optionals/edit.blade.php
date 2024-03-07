@@ -16,6 +16,8 @@
                 @endif
                 <form action="{{ route('admin.optionals.update', $optional->id) }}" method="post">
                     @csrf
+                    @method('PUT')
+                    
                     <div class="form-group my-3">
                         <label for="name" class="control-label mb-1">Name</label>
                         <input type="text" name="name" id="name" placeholder="Name" class="form-control"
