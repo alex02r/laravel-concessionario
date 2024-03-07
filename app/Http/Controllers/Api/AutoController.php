@@ -15,6 +15,24 @@ class AutoController extends Controller
             'results' => $autos 
         ]);
     }
+
+    public function show($id)
+    {
+        $auto = Auto::with('brand', 'optionals')->where('id', $id)->first();
+
+        // VERIFICO SE AUTO è NULL
+        if ($auto) {
+            return response()->json([
+                'success' => true,
+                'auto' => $auto
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+            ]);
+        }
+    }
+
     public function get_brand_autos($slug){
         $autos = Auto::with('brand', 'optionals')->where('brand.slug', $slug)->paginate(6);
         return response()->json([
