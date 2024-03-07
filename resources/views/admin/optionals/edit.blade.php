@@ -14,7 +14,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('admin.optionals.update') }}" method="post">
+                <form action="{{ route('admin.optionals.update', $optional->id) }}" method="post">
                     @csrf
                     <div class="form-group my-3">
                         <label for="name" class="control-label mb-1">Name</label>
